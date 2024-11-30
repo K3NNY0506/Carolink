@@ -12,12 +12,26 @@ function Dummyprompt() {
 
     if (title && content) {
       try {
-        const response = await axios.post('http://localhost:3002/posts', {
+        // Get the token from localStorage
+        const token = localStorage.getItem("accessToken");
+
+        // Check if the token exists
+        if (!token) {
+          alert('You need to be logged in to create a post!');
+          return;
+        }
+
+        // Send the post request with the token in the header
+        const response = await axios.post('http://localhost:8081/create-post', {
           title,    // Sending title from form input
           content,
+        }, {
+          headers: {
+            accessToken: token, // Attach the token for authentication
+          }
         });
 
-        if (response.data.success) {
+        if (response.data.Status === "Post created successfully") {
           alert('Post Created Successfully!');
           setTitle('');   // Clear title field
           setContent(''); // Clear content field

@@ -13,9 +13,9 @@ function LoginRegister() {
         }
     }
 
-    const [username, setUsername] = useState([]);
-    const [email, setEmail] = useState([]);
-    const [password, setPassword] = useState([]);
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
     function register(event) {
@@ -28,7 +28,7 @@ function LoginRegister() {
             .catch(err => console.log(err));
     }
 
-    //Login//
+    // Login
     const [values, setValues] = useState({
         email: '',
         password: ''
@@ -39,6 +39,7 @@ function LoginRegister() {
         axios.post("http://localhost:8081/login", values)
             .then(res => {
                 if (res.data.Status === "Success") {
+                    localStorage.setItem("accessToken", res.data.accessToken); // Save the token in localStorage
                     navigate("/home");
                 } else {
                     alert(res.data.Error);
@@ -49,7 +50,7 @@ function LoginRegister() {
     return (
         <div className='login-register-container'>
             <div className='content justify-content-center align-items-center d-flex shadow-lg' id='content'>
-                {/*-------------Register form----------------------*/}
+                {/*------------- Register form ----------------------*/}
                 <div className='col-md-6 d-flex justify-content-center'>
                     <form onSubmit={register}>
                         <div className='header-text mb-4'>
@@ -70,7 +71,7 @@ function LoginRegister() {
                     </form>
                 </div>
 
-                {/*-------------Login form----------------------*/}
+                {/*------------- Login form ----------------------*/}
                 <div className='col-md-6 right-box'>
                     <form onSubmit={login}>
                         <div className='header-text mb-4'>
@@ -81,17 +82,6 @@ function LoginRegister() {
                         </div>
                         <div className='input-group mb-3'>
                             <input type='password' placeholder='Password' className='form-control form-control-lg bg-light fs-6' onChange={e => setValues({ ...values, password: e.target.value })} />
-                        </div>
-                        <div className='input-group mb-5 d-flex justify-content-between'>
-                            <div className='form-check'>
-                                <input type='checkbox' className='form-check-input' />
-                                <label htmlFor='formcheck' className='form-check-label text-secondary'>
-                                    <small>Remember me</small>
-                                </label>
-                            </div>
-                            <div className='forgot'>
-                                <small><a href='#'>Forgot password</a></small>
-                            </div>
                         </div>
                         <div className='input-group mb-3 justify-content-center'>
                             <button className='btn border-white text-white w-59 fs-6'>Login</button>

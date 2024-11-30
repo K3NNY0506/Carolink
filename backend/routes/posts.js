@@ -1,17 +1,18 @@
-import express from 'express';  // Use import instead of require
-import { Post } from '../models/posts.js';  // Use import for Post model
+import express from 'express';  
+import { Post } from '../models/posts.js';  // Import Post model
+import { validateToken } from '../middlewares/AuthMiddleware.js'; // Correct path to AuthMiddleware.js
 
 const router = express.Router();
 
 // POST request to create a new post
-router.post('/', async (req, res) => {
+router.post('/', validateToken, async (req, res) => {
   try {
-    const { title, content } = req.body; // Include title in request body
-    const userId = 1; // Dummy userId, replace with real user ID (if using authentication)
+    const { title, content } = req.body;  // Title and content from frontend
+    const userId = req.user.id;  // User ID from the decoded JWT token
 
     // Insert the new post into the database
     const newPost = await Post.create({
-      user_id: userId,  // User ID associated with the post
+      user_id: userId,  // Using the user ID from the authenticated user
       title: title,     // Title from frontend form
       content: content, // Content from frontend form
       created_at: new Date(),  // Automatically sets the current timestamp
@@ -32,4 +33,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-export default router;  // Use export default for the router
+export default router;

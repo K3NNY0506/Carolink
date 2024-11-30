@@ -56,24 +56,27 @@
 
 
 
+// AuthMiddleware.js
 
-const { verify } = require("jsonwebtoken");
+import jwt from 'jsonwebtoken';  // Import the entire jsonwebtoken module
+const { verify } = jwt;  // Destructure the 'verify' function
 
-const validateToken = (req, res, next) => {
+// Middleware to validate JWT
+export const validateToken = (req, res, next) => {
   const accessToken = req.header("accessToken");
 
   if (!accessToken) return res.json({ error: "User not logged in!" });
 
   try {
     const validToken = verify(accessToken, "importantsecret");
-    req.user = validToken;
-    if (validToken) {
-      return next();
-    }
+    console.log("Decoded Token:", validToken); // Log the decoded token to verify its structure
+
+    req.user = validToken; // Attach the entire decoded token to req.user
+    return next(); // Proceed to the next middleware or route handler
   } catch (err) {
-    return res.json({ error: err });
+    console.error("Error verifying token:", err); // Log the error if token verification fails
+    return res.json({ error: "Invalid or expired token" });
   }
 };
 
-module.exports = { validateToken };
 
