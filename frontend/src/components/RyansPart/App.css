@@ -1,0 +1,35 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  display: flex;
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 300px;
+  background-color: #d9d8a8;
+  flex-shrink: 0;
+}
+
+.main-wrapper {
+  display: flex;
+  flex-grow: 1;
+}
+
+.main-content {
+  flex-grow: 2;
+  background-color: #eff2d9;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.top-users {
+  margin-right: 40px;
+  width: 250px;
+  background-color: #d9d8a8;
+  flex-shrink: 0;
+}

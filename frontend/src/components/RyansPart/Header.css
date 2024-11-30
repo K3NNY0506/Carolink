@@ -1,0 +1,55 @@
+
+.header {
+    display: flex;
+    height: 120px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #72834a;
+    padding: 10px 20px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    display: flex;
+    margin-left: 50px;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #72834a;
+}
+
+.logo-image {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background-color: #72834a;
+}
+
+.logout-section {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logout-section span {
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.logout-section span:hover {
+    color: #ff5722;
+}
+
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    object-fit: cover;
+}

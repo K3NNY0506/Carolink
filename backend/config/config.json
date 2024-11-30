@@ -1,0 +1,30 @@
+{
+    "development": {
+      "username": "ken",
+      "password": "23100917",
+      "database": "carolinkdb",
+      "host": "localhost",
+      "dialect": "mysql",
+      "port": 3306
+  
+    },
+    "test": {
+      "username": "ken",
+      "password": "23100917",
+      "database": "carolinkdb",
+      "host": "localhost",
+      "dialect": "mysql",
+      "port": 3306
+  
+    },
+    "production": {
+      "username": "ken",
+      "password": "23100917",
+      "database": "carolinkdb",
+      "host": "localhost",
+      "dialect": "mysql",
+      "port": 3306
+  
+    }
+  }
+  

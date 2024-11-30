@@ -1,0 +1,52 @@
+.add-topic-btn {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 50px;
+    background-color: #b28544;
+    color: #fff;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.add-topic-btn:hover {
+    background-color: #946e33;
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+.add-topic-btn:active {
+    transform: scale(1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.button-text {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.plus-icon {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .add-topic-btn {
+        width: 200px;
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .plus-icon {
+        font-size: 20px;
+    }
+}

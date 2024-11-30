@@ -1,0 +1,62 @@
+.promptbox {
+    position: fixed; /* Ensure it's visible on the screen */
+    top: 50%;
+    left: 50%;
+    width: 600px;
+    height: 400px;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: rgba(43, 63, 24, 0.7);
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 50px;
+}
+
+.promptbox h1 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+.promptbox h2{
+    text-align: center;
+    font-size: 24px;
+    color: #ccc;
+}
+  
+  .promptbox .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .promptbox label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  .promptbox input,
+  .promptbox textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .promptbox textarea {
+    min-height: 100px;
+  }
+  
+  .promptbox button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .promptbox button:hover {
+    background-color: #0056b3;
+  }
